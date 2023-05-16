@@ -12,8 +12,8 @@ export default function AdvertisementList() {
     const [searchValue, setSearchValue] = useState("");
 
     const handleSearchValue = e => {
-      setSearchValue(e.target.value)
-    }
+        setSearchValue(e.target.value);
+    };
 
     const getAllPost = async () => {
         try {
@@ -92,13 +92,20 @@ export default function AdvertisementList() {
                 <Loading />
             ) : (
                 <>
-                    <input
-                        type="text"
-                        value={searchValue}
-                        onChange={event => handleSearchValue(event)}
-                        placeholder="Search by content"
-                        className="searchInput"
-                    />
+                    <h1 className="productTitle">Advertisiment</h1>
+                    <div className="productTitleContainer">
+                        <input
+                            type="text"
+                            value={searchValue}
+                            onChange={event => handleSearchValue(event)}
+                            placeholder="Search by content"
+                            className="searchInput"
+                        />
+                        <Link to="/newAdvertisiment">
+                            <button className="productAddButton">Create</button>
+                        </Link>
+                    </div>
+
                     <DataGrid
                         rows={filteredData}
                         disableSelectionOnClick

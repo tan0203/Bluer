@@ -64,12 +64,6 @@ export default function Product() {
     }, []);
     return (
         <div className="product">
-            <div className="productTitleContainer">
-                <h1 className="productTitle">Post</h1>
-                <Link to="/newpost/" id="hihi">
-                    <button className="productAddButton">Create</button>
-                </Link>
-            </div>
             <div className="productTop">
                 <div className="productTopRight">
                     <div className="productInfoTop">

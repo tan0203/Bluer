@@ -8,9 +8,10 @@ export default function WidgetLg({ users }) {
             <table className="widgetLgTable">
                 <tr className="widgetLgTr">
                     <th className="widgetLgTh">Full Name</th>
-                    <th className="widgetLgTh">Date</th>
                     <th className="widgetLgTh">UserName</th>
+                    <th className="widgetLgTh">Email</th>
                     <th className="widgetLgTh">Role</th>
+                    <th className="widgetLgTh">Date</th>
                 </tr>
                 {users?.slice(0, 6)?.map(user => (
                     <tr className="widgetLgTr">
@@ -24,11 +25,12 @@ export default function WidgetLg({ users }) {
                                 {user.fullname}
                             </span>
                         </td>
+                        <td className="widgetLgAmount">{user.username}</td>
+                        <td className="widgetLgAmount">{user.email}</td>
+                        <td className="widgetLgAmount">{user.role}</td>
                         <td className="widgetLgDate">
                             {user.updatedAt.slice(0, 10)}
                         </td>
-                        <td className="widgetLgAmount">{user.username}</td>
-                        <td className="widgetLgAmount">{user.role}</td>
                     </tr>
                 ))}
             </table>

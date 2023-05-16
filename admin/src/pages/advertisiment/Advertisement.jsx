@@ -85,18 +85,16 @@ export default function Advertisiment() {
     }, []);
     return (
         <div className="product">
-            <div className="productTitleContainer">
-                <h1 className="productTitle">Advertisiment</h1>
-                <Link to="/newAdvertisiment">
-                    <button className="productAddButton">Create</button>
-                </Link>
-            </div>
             <div className="productTop">
                 <div className="productTopRight">
                     <div className="userUpdateForm">
                         <div className="userUpdateLeft">
                             <div className="productInfoTop imgInfo">
-                                <img src={image} alt="Link to Advertisiment" className="cssImg"/>
+                                <img
+                                    src={image}
+                                    alt="Link to Advertisiment"
+                                    className="cssImg"
+                                />
                             </div>
                         </div>
                         <div className="userUpdateRight mtr">
