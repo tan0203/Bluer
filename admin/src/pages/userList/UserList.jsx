@@ -3,10 +3,10 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 
 export default function UserList() {
     const [data, setData] = useState([]);
+    const [searchValue, setSearchValue] = useState("");
 
     const handleDelete = async id => {
         await fetch(`http://localhost:5000/api/data/user/${id}/delete`, {
@@ -20,16 +20,18 @@ export default function UserList() {
             })
             .catch(err => console.log(err));
     };
+
     const getAllUser = () => {
         fetch("http://localhost:5000/api/data")
             .then(response => response.json())
             .then(data => {
-                const newData = data?.map(row => ({
-                    ...row,
-                    id: row._id,
-                    followLength: row.following.length,
-                    // fullname: row.firstName + " " + row.lastName,
-                }));
+                const newData = data
+                    .filter(row => row.username.includes(searchValue))
+                    .map(row => ({
+                        ...row,
+                        id: row._id,
+                        followLength: row?.following.length,
+                    }));
                 setData(newData);
             })
             .catch(err => console.log(err));
@@ -40,7 +42,7 @@ export default function UserList() {
         return () => {
             setData([]);
         };
-    }, []);
+    }, [searchValue]);
 
     const columns = [
         { field: "id", headerName: "ID", width: 200 },
@@ -53,7 +55,7 @@ export default function UserList() {
         {
             field: "username",
             headerName: "User Name",
-            width: 120,
+            width: 200,
         },
         {
             field: "fullname",
@@ -99,6 +101,13 @@ export default function UserList() {
 
     return (
         <div className="userList">
+            <input
+                type="text"
+                value={searchValue}
+                onChange={event => setSearchValue(event.target.value)}
+                placeholder="Search by username"
+                className="searchInput"
+            />
             <DataGrid
                 rows={data}
                 disableSelectionOnClick

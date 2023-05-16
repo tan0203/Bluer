@@ -113,7 +113,7 @@ const LeftSide = () => {
                                         {
                                             user.online
                                             ? <i className="fas fa-circle text-success" />
-                                            : auth.user.following.find(item => 
+                                            : auth.user?.following.find(item => 
                                                 item._id === user._id
                                             ) && <i className="fas fa-circle" />
                                                 

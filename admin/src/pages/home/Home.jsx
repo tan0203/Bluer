@@ -10,6 +10,7 @@ import axios from "axios";
 
 export default function Home() {
     const [data, setData] = useState([]);
+    console.log(data)
     const [users, setUsersLastest] = useState([]);
     const [posts, set_posts] = useState(0);
     const [comments, set_comments] = useState(0);

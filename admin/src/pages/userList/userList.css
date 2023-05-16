@@ -1,3 +1,9 @@
+.searchInput {
+  margin-bottom: 16px;
+  padding: 8px;
+  width: 200px;
+}
+
 .userList {
   flex: 4;
 }

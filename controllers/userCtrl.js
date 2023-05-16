@@ -117,7 +117,7 @@ const userCtrl = {
     },
     suggestionsUser: async (req, res) => {
         try {
-            const newArr = [...req.user.following, req.user._id];
+            const newArr = [...req.user?.following, req.user._id];
 
             const num = req.query.num || 10;
 

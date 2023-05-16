@@ -20,7 +20,7 @@ export default function NewPost() {
                 const newData = data?.map(row => ({
                     ...row,
                     id: row._id,
-                    followLength: row.following.length,
+                    followLength: row?.following.length,
                     // fullname: row.firstName + " " + row.lastName,
                 }));
                 setDataUser(newData);
@@ -64,7 +64,7 @@ export default function NewPost() {
         const obj = {
             url: link,
         };
-        console.log(link)
+        console.log(link);
         try {
             e.preventDefault();
             const url = `http://localhost:5000/api/data/post/create`;

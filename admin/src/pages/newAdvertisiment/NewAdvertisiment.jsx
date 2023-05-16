@@ -1,6 +1,6 @@
 import { Publish } from "@material-ui/icons";
 import { useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./newProductt.css";
 
 export default function NewProduct() {
@@ -12,8 +12,6 @@ export default function NewProduct() {
         "https://cdn.brvn.vn/users/200px/2017/24949_Advertising-Vietnam_1507541235.png"
     );
     const history = useHistory();
-    let { userId } = useParams();
-
     const handleUpImage = async images => {
         setImgDefault(URL.createObjectURL(images.target.files[0]));
         let imgArr = [];
