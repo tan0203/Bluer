@@ -15,7 +15,7 @@ export default function WidgetSm({ users }) {
             </div>
             <button className="widgetSmButton">
               <Visibility className="widgetSmIcon" />
-              Display
+              View User
             </button>
           </li>
         ))}

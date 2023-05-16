@@ -3,10 +3,16 @@ import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Loading from "../../components/loading/Loading";
 
 export default function UserList() {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [searchValue, setSearchValue] = useState("");
+
+    const handleSeachUser = e => {
+        setSearchValue(e.target.value)
+    }
 
     const handleDelete = async id => {
         await fetch(`http://localhost:5000/api/data/user/${id}/delete`, {
@@ -33,6 +39,7 @@ export default function UserList() {
                         followLength: row?.following.length,
                     }));
                 setData(newData);
+                setLoading(false);
             })
             .catch(err => console.log(err));
     };
@@ -101,20 +108,26 @@ export default function UserList() {
 
     return (
         <div className="userList">
-            <input
-                type="text"
-                value={searchValue}
-                onChange={event => setSearchValue(event.target.value)}
-                placeholder="Search by username"
-                className="searchInput"
-            />
-            <DataGrid
-                rows={data}
-                disableSelectionOnClick
-                columns={columns}
-                pageSize={10}
-                checkboxSelection
-            />
+            {loading ? (
+                <Loading />
+            ) : (
+                <>
+                    <input
+                        type="text"
+                        value={searchValue}
+                        onChange={event => handleSeachUser(event)}
+                        placeholder="Search by username"
+                        className="searchInput"
+                    />
+                    <DataGrid
+                        rows={data}
+                        disableSelectionOnClick
+                        columns={columns}
+                        pageSize={10}
+                        checkboxSelection
+                    />
+                </>
+            )}
         </div>
     );
 }

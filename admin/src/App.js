@@ -1,18 +1,18 @@
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import "./App.css";
 import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
-import "./App.css";
-import Home from "./pages/home/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import UserList from "./pages/userList/UserList";
-import User from "./pages/user/User";
-import NewUser from "./pages/newUser/NewUser";
-import ProductList from "./pages/productList/ProductList";
-import Product from "./pages/product/Product";
-import NewProduct from "./pages/newProduct/NewProduct";
 import AdvertisementList from "./pages/advertisementList/AdvertisementList";
 import Advertisement from "./pages/advertisiment/Advertisement";
+import Home from "./pages/home/Home";
 import NewAdvertisiment from "./pages/newAdvertisiment/NewAdvertisiment";
 import NewPost from "./pages/newPost/NewPost";
+import NewProduct from "./pages/newProduct/NewProduct";
+import NewUser from "./pages/newUser/NewUser";
+import Product from "./pages/product/Product";
+import ProductList from "./pages/productList/ProductList";
+import User from "./pages/user/User";
+import UserList from "./pages/userList/UserList";
 
 function App() {
     return (
