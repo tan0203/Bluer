@@ -7,6 +7,8 @@ export default function NewProduct() {
     const [content, setContent] = useState("");
     const [detail, setDetail] = useState("");
     const [link, setLink] = useState("");
+    const [time, setTime] = useState("");
+    const [click, setClick] = useState("");
     const [image, setImage] = useState("");
     const [imgDefault, setImgDefault] = useState(
         "https://cdn.brvn.vn/users/200px/2017/24949_Advertising-Vietnam_1507541235.png"
@@ -46,6 +48,8 @@ export default function NewProduct() {
                 link,
                 detail,
                 image,
+                time,
+                click,
             };
             const check = await fetch(url, {
                 method: "POST",
@@ -61,7 +65,7 @@ export default function NewProduct() {
             console.log(err);
         }
     };
-
+    console.log(time);
     return (
         <div className="user">
             <div className="userTitleContainer">
@@ -97,6 +101,24 @@ export default function NewProduct() {
                                     value={link}
                                     className="userUpdateInput"
                                     onChange={e => setLink(e.target.value)}
+                                />
+                            </div>
+                            <div className="userUpdateItem">
+                                <label>Time</label>
+                                <input
+                                    type="text"
+                                    value={time}
+                                    className="userUpdateInput"
+                                    onChange={e => setTime(e.target.value)}
+                                />
+                            </div>
+                            <div className="userUpdateItem">
+                                <label>Click</label>
+                                <input
+                                    type="text"
+                                    value={click}
+                                    className="userUpdateInput"
+                                    onChange={e => setClick(e.target.value)}
                                 />
                             </div>
                         </div>

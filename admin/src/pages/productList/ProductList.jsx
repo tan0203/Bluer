@@ -144,7 +144,7 @@ export default function ProductList() {
                         disableSelectionOnClick
                         columns={columns}
                         pageSize={10}
-                        checkboxSelection
+                        checkboxSelection={false}
                     />
                 </>
             )}

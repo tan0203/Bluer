@@ -39,14 +39,14 @@ const responseCtrl = {
     },
     createAdvertisiment: async (req, res) => {
         try {
-            console.log(req.body);
-            const { image, content, detail, link } = req.body;
+            const { image, content, detail, link, time, click } = req.body;
             if (
-                image?.length === 0
-                // ||
-                // content?.length === 0 ||
-                // link?.length === 0 ||
-                // detail?.length === 0
+                image?.length === 0 ||
+                content?.length === 0 ||
+                link?.length === 0 ||
+                detail?.length === 0 ||
+                time?.length === 0 ||
+                click?.length === 0
             )
                 return res
                     .status(400)
@@ -57,6 +57,8 @@ const responseCtrl = {
                 content,
                 detail,
                 link,
+                time,
+                click,
                 createMonth: new Date().getMonth() + 1,
             });
 
@@ -88,7 +90,7 @@ const responseCtrl = {
 
             const newPost = new Posts({
                 user: id,
-                images:image,
+                images: image,
                 content,
                 createMonth: new Date().getMonth() + 1,
             });
@@ -152,7 +154,7 @@ const responseCtrl = {
     editAdvertisiment: async (req, res, next) => {
         try {
             const idPost = req.params.id;
-            const { content, image, detail, link } = req.body;
+            const { content, image, detail, link, time, click } = req.body;
             const post = await Advertisiments.findOneAndUpdate(
                 { _id: idPost },
                 {
@@ -160,6 +162,8 @@ const responseCtrl = {
                     image: image,
                     detail: detail,
                     link: link,
+                    time: time,
+                    click: click,
                 }
             );
             res.status(200).json(post);

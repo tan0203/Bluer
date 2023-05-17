@@ -61,11 +61,13 @@ export default function AdvertisementList() {
     );
 
     const columns = [
-        { field: "id", headerName: "ID", width: 200 },
-        { field: "image", headerName: "Image", width: 200 },
-        { field: "content", headerName: "Content", width: 200 },
-        { field: "detail", headerName: "Description", width: 200 },
-        { field: "link", headerName: "Link", width: 200 },
+        { field: "id", headerName: "ID", width: 150  },
+        { field: "image", headerName: "Image", width: 150 },
+        { field: "time", headerName: "Time", width: 150 },
+        { field: "content", headerName: "Content", width: 150 },
+        { field: "detail", headerName: "Description", width: 150 },
+        { field: "link", headerName: "Link", width: 150 },
+        { field: "click", headerName: "Click", width: 150 },
         {
             field: "action",
             headerName: "Action",
@@ -111,7 +113,7 @@ export default function AdvertisementList() {
                         disableSelectionOnClick
                         columns={columns}
                         pageSize={10}
-                        checkboxSelection
+                        checkboxSelection={false}
                     />
                 </>
             )}
