@@ -6,6 +6,8 @@ const advertisimentSchema = new mongoose.Schema(
         content: { type: String, required: true },
         detail: { type: String, required: true },
         link: { type: String, required: true },
+        time: { type: String, required: true },
+        click: { type: String, required: true },
     },
     { timestamps: true }
 );

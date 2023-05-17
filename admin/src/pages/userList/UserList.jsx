@@ -11,8 +11,8 @@ export default function UserList() {
     const [searchValue, setSearchValue] = useState("");
 
     const handleSeachUser = e => {
-        setSearchValue(e.target.value)
-    }
+        setSearchValue(e.target.value);
+    };
 
     const handleDelete = async id => {
         await fetch(`http://localhost:5000/api/data/user/${id}/delete`, {
@@ -115,18 +115,26 @@ export default function UserList() {
                 <Loading />
             ) : (
                 <>
-                    <input
-                        type="text"
-                        value={searchValue}
-                        onChange={event => handleSeachUser(event)}
-                        placeholder="Search"
-                        className="searchInput"
-                    />
+                    <h1 className="userTitle">Edit User</h1>
+                    <div className="userTitleContainer">
+                        <input
+                            type="text"
+                            value={searchValue}
+                            onChange={event => handleSeachUser(event)}
+                            placeholder="Search by username"
+                            className="searchInput"
+                        />
+                        <Link to="/newUser">
+                            <button className="userAddButton">Create</button>
+                        </Link>
+                    </div>
+
                     <DataGrid
                         rows={data}
                         disableSelectionOnClick
                         columns={columns}
                         pageSize={10}
+                        checkboxSelection={false}
                     />
                 </>
             )}

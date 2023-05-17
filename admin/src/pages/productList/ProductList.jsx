@@ -124,20 +124,27 @@ export default function ProductList() {
                 <Loading />
             ) : (
                 <>
-                    <input
-                        type="text"
-                        ref={searchInputRef}
-                        value={searchValue}
-                        onChange={handleSearchContent}
-                        placeholder="Search"
-                        className="searchInput"
-                    />
+                    <h1 className="productTitle">Post</h1>
+                    <div className="productTitleContainer">
+                        <input
+                            type="text"
+                            ref={searchInputRef}
+                            value={searchValue}
+                            onChange={handleSearchContent}
+                            placeholder="Search by content"
+                            className="searchInput"
+                        />
+                        <Link to="/newpost/" id="hihi">
+                            <button className="productAddButton">Create</button>
+                        </Link>
+                    </div>
+
                     <DataGrid
                         rows={data}
                         disableSelectionOnClick
                         columns={columns}
                         pageSize={10}
-                        // checkboxSelection
+                        checkboxSelection={false}
                     />
                 </>
             )}

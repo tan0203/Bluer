@@ -1,8 +1,8 @@
+import { Publish } from "@material-ui/icons";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import "./product.css";
-import { Publish } from "@material-ui/icons";
 
 export default function Advertisiment() {
     const productId = useParams();
@@ -12,6 +12,8 @@ export default function Advertisiment() {
     const [linkContent, setLinkContent] = useState("");
     const [image, setImage] = useState("");
     const [linkImg, setLinkImg] = useState("");
+    const [timeContent, setTimeContent] = useState("");
+    const [clickContent, setClickContent] = useState("");
     const history = useHistory();
 
     const handleUpImage = async images => {
@@ -52,6 +54,10 @@ export default function Advertisiment() {
             setLinkContent(post.link);
             setDetailContent(post.detail);
             setImage(post.image);
+            setTimeContent(post.time);
+            setClickContent(post.click);
+            setLinkImg(post.image)
+            console.log(post.time);
         } catch (error) {
             console.error(error);
         }
@@ -66,6 +72,8 @@ export default function Advertisiment() {
                 image: linkImg,
                 detail: detailContent,
                 link: linkContent,
+                time: timeContent,
+                click: clickContent,
             };
             await fetch(url, {
                 method: "PATCH",
@@ -85,18 +93,16 @@ export default function Advertisiment() {
     }, []);
     return (
         <div className="product">
-            <div className="productTitleContainer">
-                <h1 className="productTitle">Advertisiment</h1>
-                <Link to="/newAdvertisiment">
-                    <button className="productAddButton">Create</button>
-                </Link>
-            </div>
             <div className="productTop">
                 <div className="productTopRight">
                     <div className="userUpdateForm">
                         <div className="userUpdateLeft">
                             <div className="productInfoTop imgInfo">
-                                <img src={image} alt="Link to Advertisiment" className="cssImg"/>
+                                <img
+                                    src={image}
+                                    alt="Link to Advertisiment"
+                                    className="cssImg"
+                                />
                             </div>
                         </div>
                         <div className="userUpdateRight mtr">
@@ -143,6 +149,24 @@ export default function Advertisiment() {
                                 value={linkContent}
                                 className="userUpdateInput"
                                 onChange={e => setLinkContent(e.target.value)}
+                            />
+                        </div>
+                        <div className="userUpdateItem">
+                            <label>Time Of Advertisiment</label>
+                            <input
+                                type="text"
+                                value={timeContent}
+                                className="userUpdateInput"
+                                onChange={e => setTimeContent(e.target.value)}
+                            />
+                        </div>
+                        <div className="userUpdateItem">
+                            <label>Cout Click Of Advertisiment</label>
+                            <input
+                                type="text"
+                                value={clickContent}
+                                className="userUpdateInput"
+                                onChange={e => setClickContent(e.target.value)}
                             />
                         </div>
                     </div>
