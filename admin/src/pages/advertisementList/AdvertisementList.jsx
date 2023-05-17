@@ -62,10 +62,10 @@ export default function AdvertisementList() {
 
     const columns = [
         { field: "id", headerName: "ID", width: 200 },
-        { field: "image", headerName: "Image", width: 200 },
-        { field: "content", headerName: "Content", width: 200 },
         { field: "detail", headerName: "Description", width: 200 },
+        { field: "content", headerName: "Content", width: 200 },
         { field: "link", headerName: "Link", width: 200 },
+        { field: "time", headerName: "Time", width: 200 },
         {
             field: "action",
             headerName: "Action",
@@ -96,7 +96,7 @@ export default function AdvertisementList() {
                         type="text"
                         value={searchValue}
                         onChange={event => handleSearchValue(event)}
-                        placeholder="Search by content"
+                        placeholder="Search"
                         className="searchInput"
                     />
                     <DataGrid
@@ -104,7 +104,6 @@ export default function AdvertisementList() {
                         disableSelectionOnClick
                         columns={columns}
                         pageSize={10}
-                        checkboxSelection
                     />
                 </>
             )}

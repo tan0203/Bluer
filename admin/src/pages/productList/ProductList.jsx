@@ -129,7 +129,7 @@ export default function ProductList() {
                         ref={searchInputRef}
                         value={searchValue}
                         onChange={handleSearchContent}
-                        placeholder="Search by content"
+                        placeholder="Search"
                         className="searchInput"
                     />
                     <DataGrid
@@ -137,7 +137,7 @@ export default function ProductList() {
                         disableSelectionOnClick
                         columns={columns}
                         pageSize={10}
-                        checkboxSelection
+                        // checkboxSelection
                     />
                 </>
             )}

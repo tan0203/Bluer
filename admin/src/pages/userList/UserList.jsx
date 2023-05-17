@@ -52,18 +52,8 @@ export default function UserList() {
     }, [searchValue]);
 
     const columns = [
+        
         { field: "id", headerName: "ID", width: 200 },
-        { field: "email", headerName: "Email", width: 200 },
-        {
-            field: "gender",
-            headerName: "Gender",
-            width: 120,
-        },
-        {
-            field: "username",
-            headerName: "User Name",
-            width: 200,
-        },
         {
             field: "fullname",
             headerName: "User",
@@ -81,6 +71,19 @@ export default function UserList() {
                 );
             },
         },
+        {
+            field: "username",
+            headerName: "User Name",
+            width: 200,
+        },
+        { field: "email", headerName: "Email", width: 200 },
+        {
+            field: "gender",
+            headerName: "Gender",
+            width: 120,
+        },
+       
+        
         {
             field: "followLength",
             headerName: "Following",
@@ -116,7 +119,7 @@ export default function UserList() {
                         type="text"
                         value={searchValue}
                         onChange={event => handleSeachUser(event)}
-                        placeholder="Search by username"
+                        placeholder="Search"
                         className="searchInput"
                     />
                     <DataGrid
@@ -124,7 +127,6 @@ export default function UserList() {
                         disableSelectionOnClick
                         columns={columns}
                         pageSize={10}
-                        checkboxSelection
                     />
                 </>
             )}

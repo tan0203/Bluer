@@ -14,7 +14,7 @@ const Message = () => {
 
                     <i className="fab fa-blogger text-primary"
                     style={{fontSize: '5rem'}} />
-                    <h4>Messenger</h4>
+                    <h4>Bluermess</h4>
 
                 </div>
             </div>
